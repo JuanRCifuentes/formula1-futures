@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Formula 1 2025 Championship Points Tracker</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <script
+      src="https://cdn.jsdelivr.net/npm/chart.js@4.4.2/dist/chart.umd.min.js"
+      integrity="sha384-yGXIqGXB9nuSUXwxLBzME2YkdE+5EYXPLkZX31lrT7xvFeoJEB6Digw1VE3Dybvt"
+      crossorigin="anonymous"
+    ></script>
+    <script type="module" src="app.js"></script>
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="header-content">
+        <h1>Formula 1 2025 Championship Points Tracker</h1>
+        <p>
+          Dive into a fictionalised look at the 2025 Formula 1 World Championship.
+          Explore how the points picture evolves over every round, compare the top
+          contenders, and relive the decisive weekends that shaped the season.
+        </p>
+      </div>
+      <div class="champion-card" id="championCard" aria-live="polite"></div>
+    </header>
+
+    <main>
+      <section class="leaderboard-section">
+        <div class="section-header">
+          <h2>Driver Standings</h2>
+          <p>
+            Final classification after 24 rounds including wins, podiums, fastest
+            laps and average finishing position.
+          </p>
+        </div>
+        <div class="table-wrapper">
+          <table id="standingsTable">
+            <thead>
+              <tr>
+                <th scope="col">Pos</th>
+                <th scope="col">Driver</th>
+                <th scope="col">Team</th>
+                <th scope="col">Points</th>
+                <th scope="col">Gap</th>
+                <th scope="col">Wins</th>
+                <th scope="col">Podiums</th>
+                <th scope="col">Fastest laps</th>
+                <th scope="col">Avg finish</th>
+              </tr>
+            </thead>
+            <tbody></tbody>
+          </table>
+        </div>
+      </section>
+
+      <section class="chart-section">
+        <div class="section-header">
+          <h2>Points Progression</h2>
+          <p>
+            Visualise the momentum swings of the title race. Highlight a driver to
+            focus their line or show the full field for comparison.
+          </p>
+        </div>
+        <div class="chart-controls">
+          <label for="driverSelect">Highlight driver</label>
+          <select id="driverSelect" aria-label="Select driver to highlight"></select>
+          <label class="toggle">
+            <input type="checkbox" id="showAllDrivers" checked />
+            <span>Show all drivers</span>
+          </label>
+        </div>
+        <div class="chart-wrapper">
+          <canvas
+            id="progressChart"
+            role="img"
+            aria-label="Cumulative championship points by race"
+          ></canvas>
+        </div>
+        <div id="driverInsight" class="driver-insight" aria-live="polite"></div>
+      </section>
+
+      <section class="timeline-section">
+        <div class="section-header">
+          <h2>Race Timeline</h2>
+          <p>
+            Key storylines for every Grand Prix including podium finishers and the
+            fastest lap bonus.
+          </p>
+        </div>
+        <div id="raceTimeline" class="timeline-grid"></div>
+      </section>
+
+      <section class="results-section">
+        <div class="section-header">
+          <h2>Race Results Explorer</h2>
+          <p>Filter the classification to inspect how each point was earned.</p>
+        </div>
+        <div class="filters">
+          <label for="raceFilter">Race
+            <select id="raceFilter" aria-label="Filter by race"></select>
+          </label>
+          <label for="driverFilter">Driver
+            <select id="driverFilter" aria-label="Filter by driver"></select>
+          </label>
+        </div>
+        <div class="table-wrapper">
+          <table id="resultsTable">
+            <thead>
+              <tr>
+                <th scope="col">Rnd</th>
+                <th scope="col">Race</th>
+                <th scope="col">Pos</th>
+                <th scope="col">Driver</th>
+                <th scope="col">Team</th>
+                <th scope="col">Points</th>
+                <th scope="col">Fastest lap</th>
+              </tr>
+            </thead>
+            <tbody></tbody>
+          </table>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <p>
+        All numbers are a narrative projection created for this demo application and
+        do not represent real-world 2025 championship data.
+      </p>
+    </footer>
+  </body>
+</html>
