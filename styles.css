@@ -1,0 +1,456 @@
+:root {
+  --background: radial-gradient(circle at top left, #1b1f3b, #0b0d17 55%);
+  --surface: rgba(17, 24, 39, 0.85);
+  --surface-alt: rgba(31, 41, 55, 0.65);
+  --border: rgba(148, 163, 184, 0.2);
+  --text-primary: #f8fafc;
+  --text-secondary: #cbd5f5;
+  --accent: #ff4655;
+  --accent-soft: rgba(255, 70, 85, 0.1);
+  --highlight: #f59e0b;
+  --shadow: 0 22px 40px rgba(15, 23, 42, 0.45);
+  --font-family: "Barlow", "Segoe UI", sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  min-height: 100%;
+  font-family: var(--font-family);
+  background: var(--background);
+  color: var(--text-primary);
+}
+
+body {
+  line-height: 1.6;
+}
+
+main {
+  width: min(1100px, 92vw);
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+  padding-bottom: 4rem;
+}
+
+.site-header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: stretch;
+  justify-content: space-between;
+  gap: 2rem;
+  width: min(1100px, 92vw);
+  margin: 4rem auto 3rem;
+  padding: 2.5rem;
+  background: linear-gradient(130deg, rgba(17, 24, 39, 0.92), rgba(15, 23, 42, 0.75));
+  border: 1px solid var(--border);
+  border-radius: 26px;
+  box-shadow: var(--shadow);
+}
+
+.header-content {
+  flex: 1 1 320px;
+}
+
+.header-content h1 {
+  margin: 0 0 1rem;
+  font-size: clamp(2.2rem, 2.8vw + 1rem, 3.1rem);
+  line-height: 1.2;
+}
+
+.header-content p {
+  margin: 0;
+  color: var(--text-secondary);
+  max-width: 32rem;
+}
+
+.champion-card {
+  flex: 1 1 260px;
+  background: linear-gradient(135deg, rgba(255, 70, 85, 0.9), rgba(245, 158, 11, 0.9));
+  border-radius: 22px;
+  padding: 2rem;
+  color: #0b0d17;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 1rem;
+  box-shadow: 0 18px 40px rgba(255, 70, 85, 0.35);
+  min-height: 220px;
+}
+
+.champion-card h2 {
+  margin: 0;
+  font-size: 1.1rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.champion-card strong {
+  font-size: 2.4rem;
+  font-weight: 700;
+}
+
+.champion-card .meta {
+  display: flex;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+  font-weight: 600;
+}
+
+.section-header h2 {
+  margin: 0;
+  font-size: 1.9rem;
+}
+
+.section-header p {
+  margin: 0.35rem 0 0;
+  color: var(--text-secondary);
+  max-width: 50ch;
+}
+
+.table-wrapper {
+  background: var(--surface);
+  border-radius: 20px;
+  border: 1px solid var(--border);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.04);
+  padding: 0.5rem;
+  overflow: hidden;
+}
+
+.table-wrapper table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.table-wrapper thead {
+  background: rgba(15, 23, 42, 0.6);
+  position: sticky;
+  top: 0;
+  backdrop-filter: blur(6px);
+}
+
+.table-wrapper th,
+.table-wrapper td {
+  padding: 0.85rem 1rem;
+  text-align: left;
+  border-bottom: 1px solid rgba(148, 163, 184, 0.1);
+  font-size: 0.95rem;
+}
+
+.table-wrapper tbody tr:hover {
+  background: rgba(148, 163, 184, 0.08);
+}
+
+.table-wrapper tbody tr:nth-child(even) {
+  background: rgba(148, 163, 184, 0.03);
+}
+
+.table-wrapper tbody tr:nth-child(even):hover {
+  background: rgba(148, 163, 184, 0.1);
+}
+
+.table-wrapper tbody tr.highlight {
+  background: rgba(255, 70, 85, 0.12);
+}
+
+.table-wrapper tbody tr.highlight:hover {
+  background: rgba(255, 70, 85, 0.18);
+}
+
+.table-wrapper td:first-child,
+.table-wrapper th:first-child {
+  width: 4rem;
+  font-weight: 600;
+}
+
+.table-wrapper td:nth-child(2),
+.table-wrapper th:nth-child(2) {
+  width: 9rem;
+}
+
+.table-wrapper td:nth-child(3) {
+  font-weight: 600;
+}
+
+.table-wrapper td:last-child {
+  text-transform: uppercase;
+  font-size: 0.85rem;
+  letter-spacing: 0.04em;
+}
+
+.chart-section,
+.timeline-section,
+.results-section,
+.leaderboard-section {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.chart-controls {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.chart-controls label {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+}
+
+.chart-controls select {
+  background: var(--surface-alt);
+  color: var(--text-primary);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 0.5rem 0.9rem;
+  font-size: 1rem;
+  min-width: 180px;
+}
+
+.chart-controls select:focus {
+  outline: 2px solid var(--highlight);
+  outline-offset: 2px;
+}
+
+.chart-controls .toggle input {
+  accent-color: var(--highlight);
+}
+
+.chart-wrapper {
+  background: var(--surface);
+  border-radius: 20px;
+  border: 1px solid var(--border);
+  padding: 1.5rem;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.04);
+  min-height: 360px;
+}
+
+.chart-wrapper canvas {
+  width: 100% !important;
+  height: 320px !important;
+}
+
+.driver-insight {
+  background: var(--surface-alt);
+  border-radius: 18px;
+  border: 1px solid rgba(245, 158, 11, 0.35);
+  padding: 1.5rem;
+  box-shadow: inset 0 0 0 1px rgba(245, 158, 11, 0.12);
+}
+
+.driver-insight h3 {
+  margin-top: 0;
+  margin-bottom: 0.5rem;
+  font-size: 1.35rem;
+}
+
+.driver-insight p {
+  margin: 0.25rem 0 0.75rem;
+  color: var(--text-secondary);
+}
+
+.driver-insight ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: 0.35rem;
+}
+
+.driver-insight li {
+  position: relative;
+  padding-left: 1.2rem;
+}
+
+.driver-insight li::before {
+  content: "";
+  width: 0.5rem;
+  height: 0.5rem;
+  border-radius: 50%;
+  background: var(--highlight);
+  position: absolute;
+  left: 0;
+  top: 0.45rem;
+}
+
+.timeline-grid {
+  display: grid;
+  gap: 1.5rem;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+}
+
+.race-card {
+  background: var(--surface);
+  border-radius: 20px;
+  border: 1px solid var(--border);
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.9rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.race-card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(140deg, transparent, rgba(255, 70, 85, 0.08));
+  pointer-events: none;
+}
+
+.race-card header {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.round-pill {
+  align-self: flex-start;
+  padding: 0.25rem 0.75rem;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  background: rgba(255, 255, 255, 0.05);
+  font-size: 0.8rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.race-card h3 {
+  margin: 0;
+  font-size: 1.25rem;
+}
+
+.race-meta {
+  color: var(--text-secondary);
+  margin: 0;
+  font-size: 0.9rem;
+}
+
+.podium-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 0.4rem;
+}
+
+.podium-list li {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+}
+
+.podium-badge {
+  width: 32px;
+  height: 32px;
+  display: grid;
+  place-items: center;
+  border-radius: 12px;
+  font-weight: 700;
+  font-size: 0.95rem;
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.podium-badge.gold {
+  background: rgba(255, 215, 0, 0.18);
+  color: #ffe27a;
+}
+
+.podium-badge.silver {
+  background: rgba(209, 213, 219, 0.2);
+  color: #e5e7eb;
+}
+
+.podium-badge.bronze {
+  background: rgba(205, 127, 50, 0.2);
+  color: #f2c57c;
+}
+
+.fastest-lap {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+}
+
+.filters {
+  display: flex;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.filters label {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+}
+
+.filters select {
+  background: var(--surface-alt);
+  color: var(--text-primary);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 0.55rem 0.9rem;
+  font-size: 1rem;
+  min-width: 200px;
+}
+
+.filters select:focus {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+.site-footer {
+  margin: 2rem auto 4rem;
+  width: min(1100px, 92vw);
+  text-align: center;
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+}
+
+@media (max-width: 820px) {
+  .site-header {
+    flex-direction: column;
+    padding: 2rem;
+  }
+
+  .champion-card {
+    min-height: 0;
+  }
+
+  .chart-wrapper canvas {
+    height: 280px !important;
+  }
+
+  .table-wrapper th,
+  .table-wrapper td {
+    padding: 0.7rem 0.75rem;
+  }
+}
+
+@media (max-width: 540px) {
+  main {
+    gap: 2.5rem;
+  }
+
+  .chart-controls {
+    align-items: flex-start;
+  }
+
+  .filters select {
+    min-width: 160px;
+  }
+}
